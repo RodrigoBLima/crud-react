@@ -39,6 +39,7 @@ class App extends Component{
   }
 
   render() {
+    let datas = this.state.datas;
     return (
       <div className="App">
         <h2>{this.state.title}</h2>
@@ -51,7 +52,14 @@ class App extends Component{
 
         </form>
         <pre>
-        
+         {datas.map((data, i)=>
+            <li key={1} className="myList">
+              {i+1}. {data.name}, {data.address}
+              <button onClick="{()=>this.fRemove(i)}" class="myButton" >Excluir</button>
+              <button onClick="{()=>this.fEdit(i)}" class="myButton" >Editar</button>
+
+            </li>
+          )}
         </pre>
       </div>
     );
