@@ -6,7 +6,7 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      title: " CRUD COM REACT",
+      title: "Crud com REACT",
       act: 0,
       index: '',
       datas: []
@@ -17,10 +17,22 @@ class App extends Component{
 
   fSubmit = (e) =>{
     e.preventDefault();
+    console.log("ok");
     
     let datas = this.state.datas;
     let name = this.refs.name.value;
     let address = this.refs.address.value;
+
+    if(this.state.act === 0){//new
+      let data = {
+        name, address
+      }
+      datas.push(data);
+    }else{//update
+      let index = this.state.index;
+      datas[index].name = name;
+      datas[index].address = address;
+    }
 
     let data = {
       name, address
@@ -29,7 +41,8 @@ class App extends Component{
     datas.push(data);
 
     this.setState({
-      datas: datas
+      datas: datas,
+      act: 0
     });
 
     this.refs.myForm.reset();
@@ -42,13 +55,27 @@ class App extends Component{
 
     datas.splice(i,1);
     this.setState({
-      datas:data
+      datas:datas
     });
 
     this.refs.myForm.reset();
     this.refs.name.focus();
 
   }
+ //edit
+
+ fEdit = (i) => {
+  let datas = this.state.datas[i];
+  this.refs.name.value = datas.name;
+  this.refs.address.value = datas.address;
+
+  this.setState({
+    act:1,
+
+  });
+
+  this.refs.name.focus();
+}
 
   render() {
     let datas = this.state.datas;
@@ -67,8 +94,8 @@ class App extends Component{
          {datas.map((data, i)=>
             <li key={1} className="myList">
               {i+1}. {data.name}, {data.address}
-              <button onClick="{()=>this.fRemove(i)}" class="myButton" >Excluir</button>
-              <button onClick="{()=>this.fEdit(i)}" class="myButton" >Editar</button>
+              <button onClick="{()=>this.fRemove(i)}" class="myListButton" >Excluir</button>
+              <button onClick="{()=>this.fEdit(i)}" class="myListButton" >Editar</button>
 
             </li>
           )}
