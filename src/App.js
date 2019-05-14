@@ -35,6 +35,18 @@ class App extends Component{
     this.refs.myForm.reset();
     this.refs.name.focus();
 
+  }
+
+  fRemove = (i) => {
+    let datas = this.state.datas;
+
+    datas.splice(i,1);
+    this.setState({
+      datas:data
+    });
+
+    this.refs.myForm.reset();
+    this.refs.name.focus();
 
   }
 
