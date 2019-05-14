@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Textbox, Textarea, Radiobox, Checkbox, Select } from 'react-inputs-validation';
+import 'react-inputs-validation/lib/react-inputs-validation.min.css';
 import './App.css';
 
 class App extends Component{
