@@ -25,12 +25,17 @@ class App extends Component{
     let data = {
       name, address
     }
+
     datas.push(data);
 
     this.setState({
       datas: datas
     });
-    
+
+    this.refs.myForm.reset();
+    this.refs.name.focus();
+
+
   }
 
   render() {
@@ -42,7 +47,7 @@ class App extends Component{
           <input type="text" ref="name" placeholder="Digite seu nome" className="formField" />
           <input type="text" ref="address" placeholder="Digite seu endereço" className="formField" />
 
-          <button onClick="{this.fSubmit}" class="myButton" >Cadastrar</button>
+          <button onClick="{(e)=>this.fSubmit(e)}" class="myButton" >Cadastrar</button>
 
         </form>
         <pre>
