@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component{
 
+  constructor(props){
+    super(props);
+    this.state = {
+      title: " CRUD COM REACT",
+      act: 0,
+      index: '',
+      datas: []
+    }
+  }
+
+  componentDidMount(){this.refs.name.focus();}
+
+  fSubmit = (e) =>{
+    e.preventDefault();
+    
+    let datas = this.state.datas;
+    let name = this.refs.name.value;
+    let address = this.refs.address.value;
+
+    let data = {
+      name, address
+    }
+    datas.push(data);
+
+    this.setState({
+      datas: datas
+    });
+    
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h2>{this.state.title}</h2>
+
+        <form ref="myForm" className="myForm">
+          <input type="text" ref="name" placeholder="Digite seu nome" className="formField" />
+          <input type="text" ref="address" placeholder="Digite seu endereço" className="formField" />
+
+          <button onClick="{this.fSubmit}" class="myButton" >Cadastrar</button>
+
+        </form>
+        <pre>
+        
+        </pre>
+      </div>
+    );
+  }
+}
 export default App;
