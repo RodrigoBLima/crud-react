@@ -1,8 +1,8 @@
 {
-  "name": "Create React App Sample",
-  "short_name": "React App",
-  "theme_color": "#3eaf5c",
-  "background_color": "#3eaf5c",
+  "name": "Agriconnected Mobile App",
+  "short_name": "Agriconnected",
+  "theme_color": "#ffff",
+  "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
