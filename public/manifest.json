@@ -1,7 +1,7 @@
 {
   "name": "Agriconnected Mobile App",
   "short_name": "Agriconnected",
-  "theme_color": "#ffff",
+  "theme_color": "#000",
   "background_color": "#ffffff",
   "display": "standalone",
   "scope": "/",
